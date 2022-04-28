@@ -1,0 +1,35 @@
+{
+    "estudiantes": [
+        {
+            "nombre": "Florencia",
+            "cursos": [
+                {
+                    "curso": "Termodinamica",
+                    "id": 178
+                }
+            ],
+            "apellido": "Malacarne"
+        },
+        {
+            "nombre": "Lionel",
+            "cursos": [
+                {
+                    "curso": "Fisica",
+                    "id": 907
+                }
+            ],
+            "apellido": "Messi"
+        },
+        {
+            "nombre": "Xavi",
+            "cursos": [
+                {
+                    "curso": "Matematica",
+                    "id": 82
+                }
+            ],
+            "apellido": "Herdandez"
+        }
+    ],
+    "result": "success"
+}

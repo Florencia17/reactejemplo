@@ -1,0 +1,29 @@
+{
+    "cursos": [
+        {
+            "curso": "Termodinamica",
+            "id": 18
+        },
+        {
+            "curso": "Fisica",
+            "id": 277
+        },
+        {
+            "curso": "Electrotecnia",
+            "id": 255
+        },
+        {
+            "curso": "Matematica",
+            "id": 544
+        },
+        {
+            "curso": "Estatica",
+            "id": 753
+        },
+        {
+            "curso": "Hidroestatica",
+            "id": 447
+        }
+    ],
+    "result": "success"
+}
