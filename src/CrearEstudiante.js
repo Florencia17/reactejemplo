@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import "./CrearEstudiante.css";
+
+import Form from "react-bootstrap/Form";
+import FormGroup from "react-bootstrap/FormGroup";
+import FormLabel from "react-bootstrap/FormLabel";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
 
 export default class CrearEstudiante extends Component {
   constructor(props) {
@@ -65,36 +70,38 @@ export default class CrearEstudiante extends Component {
   render() {
     return (
       <div className="estiloCrearEstudiante">
-        <form>
-          <label>
-            Nombre
-            <input
+        <Form>
+          <FormGroup>
+            <FormLabel>Nombre</FormLabel>
+            <FormControl
               type="text"
               name="nombre"
               value={this.state.form.nombre}
               onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            apellido
-            <input
+            ></FormControl>
+          </FormGroup>
+          <FormGroup>
+            <FormLabel>Apellido</FormLabel>
+            <FormControl
               type="text"
               name="apellido"
               value={this.state.form.apellido}
               onChange={this.handleChange}
-            />
-          </label>
-          <label>curso </label>
-          <select name="curso" onChange={this.handleChange}>
-            {this.state.cursos.map((c) => (
-              <option value={c.id}>{c.curso}</option>
-            ))}
-          </select>
+            ></FormControl>
+          </FormGroup>
+          <FormGroup>
+            <FormLabel>Curso</FormLabel>
+            <FormControl name="Cursos" onChange={this.handleChange} as="select">
+              {this.state.cursos.map((c) => (
+                <option value={c.id}>{c.curso}</option>
+              ))}
+            </FormControl>
+          </FormGroup>
 
-          <button type="submite" onClick={this.handleSubmit}>
+          <Button type="submite" onClick={this.handleSubmit}>
             Enviar
-          </button>
-        </form>
+          </Button>
+        </Form>
         <p>{this.state.resultado}</p>
       </div>
     );

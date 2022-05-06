@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import "./Estudiante.css";
+
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 
 export default class Estudiante extends Component {
   constructor(props) {
@@ -30,8 +32,8 @@ export default class Estudiante extends Component {
     }));
   }
 
-  listarEstudiantes() {
-    fetch("/estudiantes.json")
+  listarEstudiantes(inputValue) {
+    fetch("/estudiantes.json?apellido=" + inputValue)
       .then((resp) => resp.json())
       .then((json) => {
         this.setState({
@@ -42,14 +44,20 @@ export default class Estudiante extends Component {
     console.log(this.state.estudiantes);
   }
 
+  componentDiUpdate(prevProps, prevState) {
+    if (prevProps.inputValue !== this.props.inputValue)
+      this.listarEstudiantes(this.props.inputValue);
+  }
+
+  componentDidMount() {
+    this.listarEstudiantes(this.props.inputValue);
+  }
+
   render() {
     return (
-      <div className="estiloEstudiante">
-        <p> Nombre: {this.props.nombre}</p>
-        <p>Apellido:{this.props.apellido}</p>
-        <p>Edad: {this.props.edad}</p>
-        <button onClick={this.cargarCurso}>inscribirme</button>
-        <table border="1">
+      <div>
+        //PONER NOMBRE ALUMNO
+        <Table striped bordered hover>
           <thead>
             <th>Curso</th>
             <th>Cantidad de Hs</th>
@@ -62,10 +70,10 @@ export default class Estudiante extends Component {
               </tr>
             ))}
           </tbody>
-        </table>
-        <button onClick={this.listarEstudiantes}>listar estudiantes</button>
+        </Table>
+        <Button onClick={this.cargarCurso}>inscribirme</Button>
         <h3>Estudiantes</h3>
-        <table border="1">
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th>Nombre</th>
@@ -86,7 +94,7 @@ export default class Estudiante extends Component {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }

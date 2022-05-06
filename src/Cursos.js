@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./Cursos.css";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 
 export default class Cursos extends Component {
   constructor(props) {
@@ -42,16 +43,16 @@ export default class Cursos extends Component {
 
   render() {
     return (
-      <div className="estiloCurso">
-        <button onClick={this.listarTodo}>Listar Todo</button>
-        <button onClick={this.listarCursoEstudiante}>
+      <div>
+        <Button onClick={this.listarTodo}>Listar Todo</Button>
+        <Button onClick={this.listarCursoEstudiante}>
           Listar Curso de Malacarne
-        </button>
+        </Button>
         <p>
           {this.state.estudiante ? "Estudiante: " + this.state.estudiante : ""}
         </p>
         <h3>Cursos</h3>
-        <table border="1">
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th>id</th>
@@ -66,7 +67,7 @@ export default class Cursos extends Component {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }

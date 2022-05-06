@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Menu from "./Menu";
+import Body from "./Body";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemMenu: 0,
+    };
+
+    this.handleItemMenuClicked = this.handleItemMenuClicked.bind(this);
+    this.handleDoSeach = this.handleDoSeach.bind(this);
+  }
+
+  handleDoSeach(inputValue) {
+    this.setState({
+      searchTxt: inputValue,
+      itemMenu: 2,
+    });
+  }
+
+  handleItemMenuClicked(itemClickeado) {
+    this.setState({
+      itemMenu: itemClickeado,
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <Menu
+          doSeach={this.handleDoSeach}
+          handler={this.handleItemMenuClicked}
+        />
+        <Body
+          inputValue={this.state.searchTxt}
+          itemClicked={this.state.itemMenu}
+        />
+      </div>
+    );
+  }
 }
-
-export default App;

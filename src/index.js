@@ -5,13 +5,13 @@ import Estudiante from "./Estudiante.js";
 import Cursos from "./Cursos";
 import CrearEstudiante from "./CrearEstudiante";
 import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Estudiante nombre="Florencia" apellido="Malacarne" edad="22" />
-    <Cursos />
-    <CrearEstudiante />
+    <App />
   </React.StrictMode>
 );
 
